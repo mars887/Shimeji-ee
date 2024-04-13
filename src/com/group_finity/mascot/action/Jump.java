@@ -39,6 +39,12 @@ public class Jump extends ActionBase {
         final int targetX = getTargetX();
         final int targetY = getTargetY();
 
+        if (targetY < getEnvironment().getWorkArea().getTop() || targetY > getEnvironment().getWorkArea().getBottom() ||
+                targetX < getEnvironment().getWorkArea().getLeft() || targetX > getEnvironment().getWorkArea().getRight()) {
+            return false;
+        }
+
+
         final double distanceX = targetX - getMascot().getAnchor().x;
         final double distanceY = targetY - getMascot().getAnchor().y - Math.abs(distanceX) / 2;
 

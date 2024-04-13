@@ -49,7 +49,6 @@ class GetBorderPlus {
 
         // --------- getCeiling ----------
         fun getCeiling(ignoreSeparator: Boolean, environment: MascotEnvironment, mascot: Mascot): Border {
-
             for (i in allAreas.indices) {
                 val area = allAreas[i].area
                 if (area.bottomBorder.isHigherThan(mascot.anchor)) continue
@@ -71,7 +70,7 @@ class GetBorderPlus {
 
 
         private fun checkWindowBottom(mascot: Mascot): Boolean {
-            return (mascot.anchor.y + mascot.bounds.height <= mascot.environment.workArea.bottom) &&
+            return (mascot.anchor.y + mascot.bounds.height < mascot.environment.workArea.bottom) &&
                     (mascot.anchor.x in (mascot.environment.workArea.left..mascot.environment.workArea.right)) &&
                     mascot.anchor.y < mascot.environment.workArea.bottom
 

@@ -14,32 +14,31 @@ import com.group_finity.mascot.script.VariableMap;
  */
 public class Animate extends BorderedAction {
 
-	private static final Logger log = Logger.getLogger(Animate.class.getName());
+    private static final Logger log = Logger.getLogger(Animate.class.getName());
 
-	public Animate( java.util.ResourceBundle schema, final List<Animation> animations, final VariableMap context )
-        {
-            super( schema, animations, context );
-	}
+    public Animate(java.util.ResourceBundle schema, final List<Animation> animations, final VariableMap context) {
+        super(schema, animations, context);
+    }
 
-	@Override
-	protected void tick() throws LostGroundException, VariableException {
+    @Override
+    protected void tick() throws LostGroundException, VariableException {
 
-		super.tick();
+        super.tick();
 
-		if ((getBorder() != null) && !getBorder().isOn(getMascot().getAnchor())) {
-			throw new LostGroundException();
-		}
+        if ((getBorder() != null) && !getBorder().isOn(getMascot().getAnchor())) {
+            throw new LostGroundException();
+        }
 
-		getAnimation().next(getMascot(), getTime());
+        getAnimation().next(getMascot(), getTime());
 
-	}
+    }
 
-	@Override
-	public boolean hasNext() throws VariableException {
+    @Override
+    public boolean hasNext() throws VariableException {
 
-		final boolean intime = getTime() < getAnimation().getDuration();
+        final boolean intime = getTime() < getAnimation().getDuration();
 
-		return super.hasNext() && intime;
-	}
+        return super.hasNext() && intime;
+    }
 
 }
