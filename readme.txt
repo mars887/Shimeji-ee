@@ -1,3 +1,25 @@
+========== Fork Description =====
+
+The main purpose of the fork is to add the ability to interact with all windows, not just the active ones.
+
+Added:
+
+Now the mascot can interact with all windows, not just the active ones, given the movement and hierarchy of windows
+
+Added Tickrate settings.
+And switching popup menus for the mascot and tray.
+
+Fixed:
+
+Fixed thousands of calls getFloor (in MascotEnvironment class) (calls from Fall class) function when falling.
+also multiple other improvements
+
+Rewritten:
+
+The barrier detection system in the Windows Environment class
+
+========== Readme from original project =====
+
 Shimeji-ee: Shimeji English Enhanced
 
 Shimeji-ee is a Windows desktop mascot that freely wanders and plays around the screen.  The mascot is very configurable; its actions are defined through xml and its animations/images can be (painstakingly) customized.  Shimeji was originally created by Yuki Yamada of Group Finity (http://www.group-finity.com/Shimeji/).  This branch of the original Shimeji project not only translates the program/source to English, but adds additional enhancements to Shimeji by Kilkakon and other members of the community.
