@@ -18,6 +18,26 @@ Rewritten:
 
 The barrier detection system in the Windows Environment class
 
+P.S
+
+if the program takes up too much RAM, you can limit it:
+if you run the program via a shortcut, you have this line {path to javaw.exe} -jar {path to the file shimejisrc.jar}
+add between -jar and the path to javaw.exe  -Xmx512m  or  -Xmx384m  , 512mb and 384mb respectively
+{path to javaw.exe} -Xmx512m -jar {file path shimejisrc.jar}
+384mb is enough for 4-5 unique shimeji
+
+the isWindowsBlacklist and InteractiveWindows settings are responsible for the windows that shimeji can interact
+with if you want shimeji to be able to interact with all windows without exceptions, set
+
+isWindowsBlacklist=true
+InteractiveWindows=manyrandomletters
+
+if only with certain ones, then set isWindowsBlacklist=false and in InteractiveWindows list the names of the required windows via /
+
+isWindowsBlacklist=false
+InteractiveWindows=browser/Taskmgr/discord
+
+
 ========== Readme from original project =====
 
 Shimeji-ee: Shimeji English Enhanced
