@@ -22,11 +22,11 @@ import com.sun.jna.ptr.LongByReference;
 import java.util.logging.*;
 
 /**
- * Original Author: Yuki Yamada of Group Finity (http://www.group-finity.com/Shimeji/)
+ * Original Author: Yuki Yamada of Group Finity (<a href="http://www.group-finity.com/Shimeji/">link</a>)
  * Currently developed by Shimeji-ee Group.
  */
 class WindowsEnvironment extends Environment {
-    private static HashMap<Pointer, Boolean> ieCache = new LinkedHashMap<>();
+    private static final HashMap<Pointer, Boolean> ieCache = new LinkedHashMap<>();
 
     public static Area workArea = new Area();
 

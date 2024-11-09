@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Mascot xmlns="http://www.group-finity.com/Mascot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.group-finity.com/Mascot Mascot.xsd">
+
+	<ActionList>
+		<Action Name="Look" Type="Embedded" Class="com.group_finity.mascot.action.Look" />
+		<Action Name="Offset" Type="Embedded" Class="com.group_finity.mascot.action.Offset" />
+
+		<Action Name="PodDropIn" Type="Embedded" Draggable="false" Class="com.group_finity.mascot.action.Breed"
+			BornX="-32" BornY="32" BornBehavior="PullUp" BornMascot="Serial Designation J" >
+			<Animation>
+				<Pose Image="/shime1.png" ImageAnchor="32,64" Velocity="0,0" Duration="2" />
+				<Pose Image="/shime2.png" ImageAnchor="32,64" Velocity="0,0" Duration="2" />
+				<Pose Image="/shime3.png" ImageAnchor="32,64" Velocity="0,0" Duration="3" />
+				<Pose Image="/shime4.png" ImageAnchor="32,64" Velocity="0,0" Duration="4" />
+				<Pose Image="/shime5.png" ImageAnchor="32,64" Velocity="0,0" Duration="10" />
+				<Pose Image="/shime6.png" ImageAnchor="32,64" Velocity="0,0" Duration="3" />
+			</Animation>
+		</Action>
+		<Action Name="PodLeave" Type="Embedded" Class="com.group_finity.mascot.action.SelfDestruct" 
+		Draggable="false">
+			<Animation>
+				<Pose Image="/shime5.png" ImageAnchor="32,64" Velocity="0,0" Duration="15" />
+				<Pose Image="/shime3.png" ImageAnchor="32,64" Velocity="0,0" Duration="6" />
+				<Pose Image="/shime2.png" ImageAnchor="32,64" Velocity="0,0" Duration="3" />
+				<Pose Image="/shime1.png" ImageAnchor="32,64" Velocity="0,0" Duration="2" />
+			</Animation>
+		</Action>
+	</ActionList>
+
+	<!-- Actual Behavior -->
+	<ActionList>
+		<!-- ALWAYS REQUIRED -->
+		<Action Name="Fall" Type="Sequence" Loop="false">
+			<ActionReference Name="PodDropIn" />
+		</Action>
+
+		<!-- ALWAYS REQUIRED -->
+		<Action Name="Dragged" Type="Sequence" Loop="true">
+			<ActionReference Name="PodDropIn" />
+		</Action>
+
+		<!-- ALWAYS REQUIRED -->
+		<Action Name="Thrown" Type="Sequence" Loop="false">
+			<ActionReference Name="PodDropIn" />
+		</Action>
+
+		<Action Name="SpawnPod" Type="Sequence" Loop="false">
+			<ActionReference Name="PodDropIn" />
+		</Action>
+
+		<Action Name="ChaseMouse" Type="Sequence" Loop="false">
+			<ActionReference Name="PodDropIn" />
+		</Action>
+	</ActionList>
+</Mascot>

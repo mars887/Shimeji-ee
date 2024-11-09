@@ -262,7 +262,7 @@ public class Main {
 
 
             final Document actions = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
-                    new FileInputStream(new File(actionsFile)));
+                    Files.newInputStream(new File(actionsFile).toPath()));
 
             Configuration configuration = new Configuration();
 

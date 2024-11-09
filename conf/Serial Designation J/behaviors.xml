@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Mascot xmlns="http://www.group-finity.com/Mascot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.group-finity.com/Mascot Mascot.xsd">
+
+	<BehaviorList>
+	
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="ChaseMouse" Frequency="0" Hidden="true">
+			<NextBehaviorList Add="false">
+				<BehaviorReference Name="ArmsCrossed" Frequency="1" />
+			</NextBehaviorList>
+		</Behavior>
+		
+		<Behavior Name="SitAndFaceMouse" Frequency="50">
+			<NextBehaviorList Add="false">
+				<BehaviorReference Name="SitAndFaceMouse" Frequency="150" />
+				<BehaviorReference Name="SitAndSpinHead" Frequency="50" />
+				<BehaviorReference Name="Wtf" Frequency="50" />
+				<BehaviorReference Name="Ugh" Frequency="50" />
+				<BehaviorReference Name="Angry" Frequency="50" />
+				<BehaviorReference Name="SitDown" Frequency="20" />
+			</NextBehaviorList>
+		</Behavior>
+		
+		<Behavior Name="SitAndSpinHead" Frequency="50" Hidden="true">
+			<NextBehaviorList Add="false">
+				<BehaviorReference Name="SitAndWrite" Frequency="1" />
+			</NextBehaviorList>
+		</Behavior>
+		
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="Fall" Frequency="0" Hidden="true" />
+		
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="Dragged" Frequency="0" Hidden="true" />
+		
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="Thrown" Frequency="0" Hidden="true" >
+			<NextBehaviorList Add="false">
+					<BehaviorReference Name="LookingAround" Frequency="50" />
+					<BehaviorReference Name="NoOneSawThatRight" Frequency="5" />
+				</NextBehaviorList>
+			</Behavior>
+		
+		<Behavior Name="PullUp" Frequency="0" Hidden="true" />
+		<Behavior Name="Divided" Frequency="0" Hidden="true" >
+			<NextBehaviorList Add="false">
+				<BehaviorReference Name="HoloSnakeCrab" Frequency="100" />
+				<BehaviorReference Name="HoloSnakeCrabPause" Frequency="100" />
+				<BehaviorReference Name="CrawlAlongIECeiling" Frequency="100" Condition="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+				<BehaviorReference Name="CrawlAlongWorkAreaFloor" Frequency="100" Condition=
+				"${mascot.environment.floor.isOn(mascot.anchor)}" />
+			</NextBehaviorList>
+		</Behavior>
+
+		<!-- On the Floor -->
+		<Condition Condition="#{mascot.environment.floor.isOn(mascot.anchor) || mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}">
+			<Behavior Name="StandUp" Frequency="150" Hidden="true" >
+				<NextBehaviorList Add="true">
+					<BehaviorReference Name="ArmsCrossed" Frequency="100" />
+					<BehaviorReference Name="LookingAround" Frequency="100" />
+					<BehaviorReference Name="BrandedPen" Frequency="70" />
+					<BehaviorReference Name="Stance" Frequency="30" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="SmallDance" Frequency="0">
+				<NextBehaviorList Add="true">
+					<BehaviorReference Name="NoOneSawThatRight" Frequency="200" />
+					<BehaviorReference Name="LookingAround" Frequency="100" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="NoOneSawThatRight" Frequency="0" Hidden="true" />
+			
+			<Behavior Name="BrandedPen" Frequency="0" />
+			
+			<Behavior Name="ArmsCrossed" Frequency="70" Hidden="true">
+				<NextBehaviorList Add="false">
+					<Behavior Name="WalkAlongWorkAreaFloor" Frequency="100" />
+					<Behavior Name="RunAlongWorkAreaFloor" Frequency="100" />
+					<BehaviorReference Name="GrabWorkAreaBottomLeftWall" Condition="#{mascot.environment.floor.isOn(mascot.anchor)}" Frequency="50" />
+					<BehaviorReference Name="GrabWorkAreaBottomRightWall" Condition="#{mascot.environment.floor.isOn(mascot.anchor)}" Frequency="50" />
+					<BehaviorReference Name="LookingAround2" Frequency="50" />
+					<BehaviorReference Name="StandUp" Frequency="10" />
+					<BehaviorReference Name="Stance" Frequency="10" />
+					<BehaviorReference Name="SmallDance" Frequency="5" />
+					<BehaviorReference Name="NerdEmoji" Frequency="5" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="LookingAround" Frequency="70" Hidden="true">
+				<NextBehaviorList Add="false">
+					<Behavior Name="WalkAlongWorkAreaFloor" Frequency="100" />
+					<Behavior Name="RunAlongWorkAreaFloor" Frequency="100" />
+					<BehaviorReference Name="GrabWorkAreaBottomLeftWall" Condition="#{mascot.environment.floor.isOn(mascot.anchor)}" Frequency="50" />
+					<BehaviorReference Name="GrabWorkAreaBottomRightWall" Condition="#{mascot.environment.floor.isOn(mascot.anchor)}" Frequency="50" />
+					<BehaviorReference Name="ArmsCrossed2" Frequency="50" />
+					<BehaviorReference Name="StandUp" Frequency="10" />
+					<BehaviorReference Name="Stance" Frequency="10" />
+					<BehaviorReference Name="BrandedPen" Frequency="10" />
+					<BehaviorReference Name="SmallDance" Frequency="5" />
+					<BehaviorReference Name="NerdEmoji" Frequency="5" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="ArmsCrossed2" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="true">
+					<BehaviorReference Name="SmallDance" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="LookingAround2" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="true">
+					<BehaviorReference Name="SmallDance" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="Stance" Frequency="10" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="NerdEmoji" Frequency="100" />
+					<BehaviorReference Name="ArmsCrossed2" Frequency="50" />
+					<BehaviorReference Name="LookingAround2" Frequency="50" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="NerdEmoji" Frequency="5" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="SitAndSpinHead" Frequency="100" />
+					<BehaviorReference Name="BrandedPen" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="SitDown" Frequency="100">
+				<NextBehaviorList Add="true">
+					<BehaviorReference Name="SitAndSpinHead" Frequency="50" />
+					<BehaviorReference Name="SitAndFaceMouse" Frequency="100" />
+					<BehaviorReference Name="Wtf" Frequency="30" />
+					<BehaviorReference Name="Ugh" Frequency="30" />
+					<BehaviorReference Name="Angry" Frequency="30" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="SitBonk" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="StopThat" Frequency="100" />
+					<BehaviorReference Name="ThisIsFine" Frequency="100" />
+					<BehaviorReference Name="CrawlAlongIECeiling" Frequency="1" Condition="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="CrawlAlongWorkAreaFloor" Frequency="1" 
+					Condition="${mascot.environment.floor.isOn(mascot.anchor)}" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			
+			<Behavior Name="StopThat" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="SitDown" Frequency="10" />
+					<BehaviorReference Name="SitAndFaceMouse" Frequency="50" />
+					<BehaviorReference Name="Wtf" Frequency="50" />
+					<BehaviorReference Name="Angry" Frequency="50" />
+					<BehaviorReference Name="Ugh" Frequency="50" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="ThisIsFine" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="Angry" Frequency="50" />
+					<BehaviorReference Name="Ugh" Frequency="50" />
+					<BehaviorReference Name="SitAndFaceMouse" Frequency="50" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="Wtf" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="true">
+					<BehaviorReference Name="SitDown" Frequency="100" />
+					<BehaviorReference Name="Angry" Frequency="10" />
+					<BehaviorReference Name="Ugh" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="Angry" Frequency="10" Hidden="true">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="SitDown" Frequency="100" />
+					<BehaviorReference Name="Wtf" Frequency="10" />
+					<BehaviorReference Name="Ugh" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="Ugh" Frequency="0" Hidden="true">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="SitDown" Frequency="100" />
+					<BehaviorReference Name="Wtf" Frequency="10" />
+					<BehaviorReference Name="Angry" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="SitAndWrite" Frequency="0">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="SitAndWrite" Frequency="50" />
+					<BehaviorReference Name="SitAndFaceMouse" Frequency="50" />
+					<BehaviorReference Name="SitDown" Frequency="50" />
+					<BehaviorReference Name="Angry" Frequency="10" />
+					<BehaviorReference Name="Ugh" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="HoloSnakeCrabPause" Frequency="0" Hidden="true" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="JumpOnIELeftWall" Frequency="10" Condition="#{mascot.environment.activeIE.visible &amp;&amp; mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+					mascot.anchor.x &lt; mascot.environment.activeIE.left}" />
+					<BehaviorReference Name="JumpOnIERightWall" Frequency="10" Condition="#{mascot.environment.activeIE.visible &amp;&amp; mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+					mascot.anchor.x &gt; mascot.environment.activeIE.right}" />
+					
+					<BehaviorReference Name="JumpFromRightWall" Frequency="10" Condition="#{!mascot.environment.workArea.rightBorder.isOn(mascot.anchor) &amp;&amp;
+					mascot.anchor.x &gt;= mascot.environment.workArea.right-400 &amp;&amp;
+					Math.abs(mascot.environment.workArea.bottom-mascot.anchor.y) 
+					&lt;mascot.environment.workArea.height/4}" />
+					<BehaviorReference Name="JumpFromLeftWall" Frequency="10" Condition="#{!mascot.environment.workArea.leftBorder.isOn(mascot.anchor) &amp;&amp;
+					mascot.anchor.x &lt; mascot.environment.workArea.left+400 &amp;&amp;
+					Math.abs(mascot.environment.workArea.bottom-mascot.anchor.y) 
+					&lt;mascot.environment.workArea.height/4}" />
+					
+					<BehaviorReference Name="CrawlAlongIECeiling" Frequency="200" Condition="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="CrawlAlongWorkAreaFloor" Frequency="200" Condition=
+					"${mascot.environment.floor.isOn(mascot.anchor)}" />
+					
+					<BehaviorReference Name="HoloSnakeCrab" Frequency="10" />
+					<BehaviorReference Name="CrabDance" Frequency="10" />
+					<BehaviorReference Name="SplitIntoTwo" Frequency="5" />
+					<BehaviorReference Name="JComesBack" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="HoloSnakeCrab" Frequency="0">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="CrawlAlongIECeiling" Frequency="100" Condition="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="CrawlAlongWorkAreaFloor" Frequency="100" 
+					Condition="${mascot.environment.floor.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="SplitIntoTwo" Frequency="5" />
+					<BehaviorReference Name="CrabDance" Frequency="5" />
+					<BehaviorReference Name="JComesBack" Frequency="30" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="CrabDance" Frequency="0">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="HoloSnakeCrab" Frequency="100" />
+					<BehaviorReference Name="CrawlAlongIECeiling" Frequency="100" Condition="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="CrawlAlongWorkAreaFloor" Frequency="100" Condition=
+					"${mascot.environment.floor.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="SplitIntoTwo" Frequency="5" />
+					<BehaviorReference Name="CrabDance" Frequency="5" />
+				</NextBehaviorList>
+			</Behavior>
+			
+			<Behavior Name="JComesBack" Frequency="0" Hidden="true"/>
+			
+			<Behavior Name="SplitIntoTwo" Frequency="0" Condition="#{mascot.totalCount &lt; 50}" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="HoloSnakeCrab" Frequency="100" />
+					<BehaviorReference Name="HoloSnakeCrabPause" Frequency="100" />
+					<BehaviorReference Name="CrawlAlongIECeiling" Frequency="100" Condition="${mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}" />
+					<BehaviorReference Name="CrawlAlongWorkAreaFloor" Frequency="100" Condition=
+					"${mascot.environment.floor.isOn(mascot.anchor)}" />
+				</NextBehaviorList>
+			</Behavior>
+		</Condition>
+
+		<!-- On the Wall -->
+		<Condition Condition="#{ mascot.lookRight ? (
+					mascot.environment.workArea.rightBorder.isOn(mascot.anchor) || 
+					mascot.environment.activeIE.leftBorder.isOn(mascot.anchor) ) : (
+					mascot.environment.workArea.leftBorder.isOn(mascot.anchor) || 
+					mascot.environment.activeIE.rightBorder.isOn(mascot.anchor) ) }">
+			<Behavior Name="HoldOntoWall" Frequency="100" Hidden="true" />
+			<Behavior Name="FallFromWall" Frequency="50" Condition="${!mascot.environment.floor.isOn(mascot.anchor)}" Hidden="true" />
+		</Condition>
+		
+		<!-- On the Ceiling -->
+		<Condition Condition="#{mascot.environment.ceiling.isOn(mascot.anchor) || mascot.environment.activeIE.bottomBorder.isOn(mascot.anchor)}">
+			<Behavior Name="HoldOntoCeiling" Frequency="100" Hidden="true" />
+			<Behavior Name="FallFromCeiling" Frequency="50" Hidden="true" />
+			<Behavior Name="ClingOnCeiling" Frequency="50" Hidden="true">
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="HangOnCeiling" Frequency="1" />
+				</NextBehaviorList>
+			</Behavior>
+			<Behavior Name="HangOnCeiling" Frequency="0" Hidden="true" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="LookWritingOnCeiling" Frequency="100" />
+					<BehaviorReference Name="ObserveFromCeiling" Frequency="50" />
+					<BehaviorReference Name="ClimbAlongCeiling" Frequency="10" />
+					<BehaviorReference Name="HoldOntoCeiling" Frequency="10" />
+					<BehaviorReference Name="FallFromCeiling" Frequency="10" />
+				</NextBehaviorList>
+			</Behavior>
+			<Behavior Name="WriteFromCeiling" Frequency="0" Hidden="true" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="LookWritingOnCeiling" Frequency="50" />
+					<BehaviorReference Name="ObserveFromCeiling" Frequency="100" />
+					<BehaviorReference Name="HangOnCeiling" Frequency="50" />
+				</NextBehaviorList>
+			</Behavior>
+			<Behavior Name="LookWritingOnCeiling" Frequency="0" Hidden="true" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="WriteFromCeiling" Frequency="100" />
+					<BehaviorReference Name="ObserveFromCeiling" Frequency="50" />
+					<BehaviorReference Name="HangOnCeiling" Frequency="30" />
+				</NextBehaviorList>
+			</Behavior>
+			<Behavior Name="ObserveFromCeiling" Frequency="0" Hidden="true" >
+				<NextBehaviorList Add="false">
+					<BehaviorReference Name="LookWritingOnCeiling" Frequency="50" />
+					<BehaviorReference Name="WriteFromCeiling" Frequency="100" />
+					<BehaviorReference Name="HangOnCeiling" Frequency="30" />
+				</NextBehaviorList>
+			</Behavior>
+		</Condition>
+		
+		<!-- On Work Area Floor -->
+		<Condition Condition="#{mascot.environment.floor.isOn(mascot.anchor)}">
+			<Behavior Name="WalkAlongWorkAreaFloor" Frequency="100" Hidden="true" />
+			<Behavior Name="RunAlongWorkAreaFloor" Frequency="100" Hidden="true" />
+			<Behavior Name="CrawlAlongWorkAreaFloor" Frequency="10">
+				<NextBehaviorList Add="false">
+					<!-- Finished Crawling -->
+					<BehaviorReference Name="HoloSnakeCrabPause" Frequency="150" />
+					<BehaviorReference Name="HoloSnakeCrab" Frequency="10" />
+					<BehaviorReference Name="CrabDance" Frequency="5" />
+				</NextBehaviorList>
+			</Behavior>
+			<Behavior Name="WalkLeftAlongFloorAndSit" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkRightAlongFloorAndSit" Frequency="100" Hidden="true" />
+			<Behavior Name="GrabWorkAreaBottomLeftWall" Frequency="100" />
+			<Behavior Name="GrabWorkAreaBottomRightWall" Frequency="100" />
+			<Behavior Name="WalkLeftAndSit" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkRightAndSit" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkAndGrabBottomLeftWall" Frequency="100" Hidden="true"  />
+			<Behavior Name="WalkAndGrabBottomRightWall" Frequency="100" Hidden="true"  />
+			<Behavior Name="JumpFromBottomOfIE" Frequency="50" Condition="#{mascot.anchor.x &gt;= mascot.environment.activeIE.left &amp;&amp;
+				mascot.anchor.x &lt; mascot.environment.activeIE.right}" />
+				
+			<Behavior Name="PullUpShimeji" Frequency="15" Condition="#{mascot.totalCount &lt; 50}" />
+		</Condition>
+		
+		<!-- On Work Area Facing the Wall -->
+		<Condition Condition="#{mascot.lookRight ? mascot.environment.workArea.rightBorder.isOn(mascot.anchor) :
+					mascot.environment.workArea.leftBorder.isOn(mascot.anchor)}">
+			<Behavior Name="ClimbHalfwayAlongWall" Frequency="100" Hidden="true" />
+			<Behavior Name="ClimbAlongWall" Frequency="100" />
+		</Condition>
+		
+		<!-- On Work Area Top Facing -->
+		<Condition Condition="#{mascot.environment.ceiling.isOn(mascot.anchor)}">
+			<Behavior Name="ClimbAlongCeiling" Frequency="150" />
+		</Condition>
+		
+		<!-- On Top of IE -->
+		<Condition Condition="#{mascot.environment.activeIE.topBorder.isOn(mascot.anchor)}">
+			<Behavior Name="WalkAlongIECeiling" Frequency="100" Hidden="true" />
+			<Behavior Name="RunAlongIECeiling" Frequency="100" Hidden="true" />
+			<Behavior Name="CrawlAlongIECeiling" Frequency="10" Hidden="true">
+				<NextBehaviorList Add="false">
+					<!-- Finished Crawling -->
+					<BehaviorReference Name="HoloSnakeCrab" Frequency="1" />
+				</NextBehaviorList>
+			</Behavior>
+			<Behavior Name="SitOnTheLeftEdgeOfIE" Frequency="100" Hidden="true" />
+			<Behavior Name="SitOnTheRightEdgeOfIE" Frequency="100" Hidden="true" />
+			<Behavior Name="JumpFromLeftEdgeOfIE" Frequency="100" Hidden="true" />
+			<Behavior Name="JumpFromRightEdgeOfIE" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkLeftAlongIEAndSit" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkRightAlongIEAndSit" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkLeftAlongIEAndJump" Frequency="100" Hidden="true" />
+			<Behavior Name="WalkRightAlongIEAndJump" Frequency="100" Hidden="true" />
+		</Condition>
+		
+		<!-- On IE's Side -->
+		<Condition Condition="#{mascot.lookRight ? mascot.environment.activeIE.leftBorder.isOn(mascot.anchor) :
+					mascot.environment.activeIE.rightBorder.isOn(mascot.anchor)}">
+			<Behavior Name="HoldOntoIEWall" Frequency="100" Hidden="true" />
+			<Behavior Name="ClimbIEWall" Frequency="100" Hidden="true" />
+			
+		</Condition>
+
+		<!-- On the Bottom of IE -->
+		<Condition Condition="#{mascot.environment.activeIE.bottomBorder.isOn(mascot.anchor)}">
+			<Behavior Name="ClimbIEBottom" Frequency="100" Hidden="true" />
+			<Behavior Name="GrabIEBottomLeftWall" Frequency="100" Hidden="true" />
+			<Behavior Name="GrabIEBottomRightWall" Frequency="100" Hidden="true" />
+		</Condition>
+		
+		<Behavior Name="JumpFromLeftWall" Frequency="50" Condition="#{!mascot.environment.workArea.leftBorder.isOn(mascot.anchor) &amp;&amp;
+			mascot.anchor.x &lt; mascot.environment.workArea.left+400 &amp;&amp;
+			Math.abs(mascot.environment.workArea.bottom-mascot.anchor.y) &lt;mascot.environment.workArea.height/4}" Hidden="true" />
+		<Behavior Name="JumpFromRightWall" Frequency="50" Condition="#{!mascot.environment.workArea.rightBorder.isOn(mascot.anchor) &amp;&amp;
+			mascot.anchor.x &gt;= mascot.environment.workArea.right-400 &amp;&amp;
+			Math.abs(mascot.environment.workArea.bottom-mascot.anchor.y) &lt;mascot.environment.workArea.height/4}" Hidden="true" />
+
+		<!-- IE Is Visible -->
+		<Condition Condition="#{mascot.environment.activeIE.visible}">
+			<Behavior Name="JumpOnIELeftWall" Frequency="50" Condition="#{mascot.anchor.x &lt; mascot.environment.activeIE.left &amp;&amp;
+				Math.abs(mascot.environment.activeIE.bottom-mascot.anchor.y) &lt;mascot.environment.activeIE.height/4}" Hidden="true" />
+			<Behavior Name="JumpOnIERightWall" Frequency="50" Condition="#{mascot.anchor.x &gt; mascot.environment.activeIE.right &amp;&amp;
+				Math.abs(mascot.environment.activeIE.bottom-mascot.anchor.y) &lt;mascot.environment.activeIE.height/4}" Hidden="true" />
+				
+			<Behavior Name="ThrowIEFromLeft" Frequency="5" Condition="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &lt; mascot.environment.activeIE.left}" />
+			<Behavior Name="ThrowIEFromRight" Frequency="5" Condition="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &gt; mascot.environment.activeIE.right}" />
+			<Behavior Name="WalkAndThrowIEFromRight" Frequency="5" Condition="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &gt; mascot.environment.activeIE.right}" />
+			<Behavior Name="WalkAndThrowIEFromLeft" Frequency="5" Condition="#{mascot.environment.activeIE.bottom &lt; mascot.anchor.y-64 &amp;&amp;
+				mascot.anchor.x &lt; mascot.environment.activeIE.left}" />
+				
+		</Condition>
+
+	</BehaviorList>
+</Mascot>

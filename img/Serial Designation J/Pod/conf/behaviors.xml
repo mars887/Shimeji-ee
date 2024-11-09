@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Mascot xmlns="http://www.group-finity.com/Mascot" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.group-finity.com/Mascot Mascot.xsd">
+
+	<BehaviorList>
+	
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="ChaseMouse" Frequency="0" Hidden="true">
+			<NextBehaviorList Add="false">
+				<BehaviorReference Name="SpawnPod" Frequency="1" />
+			</NextBehaviorList>
+		</Behavior>
+		
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="Fall" Frequency="0" Hidden="true" />
+		
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="Dragged" Frequency="0" Hidden="true" />
+		
+		<!-- ALWAYS REQUIRED -->
+		<Behavior Name="Thrown" Frequency="0" Hidden="true" />
+		
+		<Behavior Name="SpawnPod" Frequency="100" >
+			<NextBehaviorList Add="false">
+				<BehaviorReference Name="PodLeave" Frequency="1" />
+			</NextBehaviorList>
+		</Behavior>
+		<Behavior Name="PodLeave" Frequency="0" Hidden="true" />
+		
+	</BehaviorList>
+</Mascot>
